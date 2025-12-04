@@ -1,0 +1,156 @@
+/* Container for centered orbit */
+.orbit-container {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Vortex Glow inside ring */
+.orbit-container::before {
+    content: "";
+    position: absolute;
+    width: 24vmin;
+    height: 24vmin;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle at center,
+        rgba(255,255,255,0.15) 0%,
+        rgba(94,200,255,0.20) 30%,
+        rgba(30,140,255,0.12) 55%,
+        rgba(0,0,0,0) 80%
+    );
+    opacity: 0;
+    filter: blur(18px);
+    transition: opacity 0.45s ease-out, transform 0.3s ease-out;
+    pointer-events: none;
+    z-index: 1; /* BELOW icons */
+}
+
+/* Aurora active while in FTL travel */
+.orbit-container.blurred::before,
+.orbit-container.blue-shift::before {
+    opacity: 1;
+    transform: scale(1.2);
+    animation: aurora-spin 1.2s linear infinite;
+}
+
+/* FTL flash kills vortex */
+.flash-burst .orbit-container::before {
+    opacity: 0;
+    animation: none;
+    transform: scale(2.6);
+    filter: blur(38px);
+}
+
+/* Each icon container */
+.orbit-icon {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    pointer-events: none;
+    transform: translate(0, 0);
+    z-index: 2;
+}
+
+/* Base glyph appearance */
+.orbit-symbol {
+    display: block;
+    font-size: 2.4rem;
+    color: var(--color-solarGold);
+    pointer-events: none;
+    transform: rotate(0deg);
+    transition: filter 0.25s ease-out;
+
+    /* CRISPER glow */
+    filter:
+        drop-shadow(0 0 0.5px var(--color-cloudWhite))            
+        drop-shadow(0 0 6px var(--color-solarGold));    
+}
+
+/* Warp trail (FTL spin) */
+.warp-trail .orbit-symbol {
+    filter:
+        drop-shadow(
+            calc(var(--tx) * -3px)
+            calc(var(--ty) * -3px)
+            14px
+            var(--color-cloudWhite)
+        )
+        drop-shadow(
+            calc(var(--tx) * -3px)
+            calc(var(--ty) * -3px)
+            18px
+            var(--color-solarGold)
+        )
+        drop-shadow(
+            calc(var(--tx) * -1px)
+            calc(var(--ty) * -1px)
+            5px
+            var(--color-solarGold)
+        )
+        drop-shadow(
+            calc(var(--tx) * 1px)
+            calc(var(--ty) * 1px)
+            3px
+          rgba(255,255,255,0.3)
+        );
+
+}
+
+/* When blue shift is active, change ring color */
+.blue-shift .orbit-symbol {
+    color: var(--color-blueShift);
+    filter:
+        drop-shadow(0 0 4px var(--color-blueShift))
+        drop-shadow(0 0 9px var(--color-cyanFlash))
+        drop-shadow(0 0 16px var(--color-cyanFlash));
+    transition: filter 0.18s ease-out, color 0.18s ease-out;
+}
+
+.charge-flash .orbit-symbol {
+    filter:
+        drop-shadow(0 0 3px var(--color-cloudWhite))      /* core */
+        drop-shadow(0 0 7px var(--color-cyanFlash))        /* pulse */
+        drop-shadow(0 0 14px var(--color-blueShift));      /* outer */
+    color: var(--color-cloudWhite);
+    transition: filter 0.12s ease-out, color 0.12s ease-out;
+}
+
+/* FTL flash */
+.flash-burst .orbit-symbol {
+    /* instantly burn out the icon */
+    color: rgba(255,255,255,1) !important;
+    opacity: 1 !important;
+
+    /* massive bloom */
+    filter:
+        drop-shadow(0 0 12px rgba(255,255,255,1))
+        drop-shadow(0 0 28px rgba(255,255,255,1))
+        drop-shadow(0 0 48px rgba(255,255,255,1))
+        drop-shadow(0 0 78px rgba(255,255,255,1));
+
+    /* fast, physical overexposure */
+    transition: filter 0.05s linear, opacity 0.12s linear;
+}
+
+/* After flash collapse into white out */
+.flash-burst.fade-out .orbit-symbol {
+    opacity: 0 !important;
+    filter: none !important;
+}
+
+@keyframes aurora-spin {
+    0% {
+        transform: scale(0.9) rotate(0deg);
+    }
+    50% {
+        transform: scale(1.05) rotate(180deg);
+    }
+    100% {
+        transform: scale(1.15) rotate(360deg);
+    }
+}
