@@ -8,6 +8,8 @@ const theme = {
         deepSpace: "#0B0C10", // background
         solarGold: "#C9A227",
         cloudWhite: "#EDEDED",
+        blueShift: "#5EC8FF",
+        cyanFlash: "#AEE7FF",
     },
 };
 
@@ -20,6 +22,8 @@ export const ThemeProvider = ({ children }) => {
             --color-deepSpace: ${theme.colors.deepSpace};
             --color-solarGold: ${theme.colors.solarGold};
             --color-cloudWhite: ${theme.colors.cloudWhite};
+            --color-blueShift: ${theme.colors.blueShift};
+            --color-cyanFlash: ${theme.colors.cyanFlash};
           }
         `}
             </style>
