@@ -1,0 +1,87 @@
+/* Fullscreen layout container */
+.home-container {
+    width: 100vw;
+    height: 100vh;
+    background: var(--color-deepSpace);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Responsive Astral Gate hitbox
+   Radius = 28% of smallest viewport dimension */
+.astral-gate-hitbox {
+    position: relative;
+    width: 28vmin;
+    height: 28vmin;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Center text */
+.astral-gate-text {
+    font-size: 2rem;
+    letter-spacing: 3px;
+    color: var(--color-cloudWhite);
+    text-shadow: 0 0 12px var(--color-cloudWhite);
+    transition: 0.25s ease;
+    user-select: none;
+}
+
+/* Hover state → brighter + slight scale */
+.astral-gate-text.hover {
+    transform: scale(1.08);
+    text-shadow: 0 0 18px var(--color-cloudWhite);
+}
+
+/* Click (warp) state */
+.astral-gate-text.warp {
+    transform: scale(1.25);
+    text-shadow: 0 0 24px var(--color-cloudWhite);
+    opacity: 0.5;
+}
+
+/* Text Fade on gate click */
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.75s ease-out;
+}
+
+/* Full screen flash white-out */
+.flash-screen {
+    position: fixed;
+    inset: 0;
+    background: white;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 9999;
+    transition: opacity 0.18s linear;
+}
+
+/* Activate white-out */
+.flash-screen.active {
+    opacity: 1;
+    background: white !important;
+    transition: opacity 0.07s linear;
+}
+
+.astral-gate-hitbox {
+    transform-origin: center center;
+    transition: transform 0.35s ease-out;
+}
+.astral-gate-hitbox.zoom-warp {
+    transform: scale(2.9);
+}
+
+/* PORTAL ZOOM EFFECT — scales toward viewer */
+.portal-wrapper {
+    transform-origin: center center;
+    transition: transform 0.65s ease-in;
+}
+
+.portal-wrapper.portal-zoom {
+    transform: scale(5.0);
+}
