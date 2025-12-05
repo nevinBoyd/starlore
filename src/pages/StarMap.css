@@ -1,22 +1,16 @@
-/* Fullscreen layout container */
 .star-map-page {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    position: relative;
-    background: var(--color-deepSpace);
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background: var(--color-deepSpace);
 }
 
-/* Layer above starfield */
-.star-map-layer {
-    position: relative;
-    z-index: 2;
-    pointer-events: auto;
-}
-
-/* Temporary styling for placeholder text */
-.star-map-layer h1 {
-    font-size: 2.4rem;
-    color: var(--color-cloudWhite);
-    text-shadow: 0 0 8px rgba(255,255,255,0.4);
+.icon-layer {
+  position: absolute;
+  top: 12vh;               /* Move icon down a bit */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  pointer-events: auto;
 }

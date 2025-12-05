@@ -1,0 +1,96 @@
+/* CARD GRID */
+.zodiac-card-container {
+  display: flex;
+  gap: 1.4rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* INDIVIDUAL CARD */
+.zodiac-card {
+  width: 240px;
+  height: 340px;                   /* consistent card height */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: rgba(0, 10, 20, 0.75);
+  border: 1px solid var(--aries-accent);
+  box-shadow: 0 0 10px var(--aries-starGlow);
+  border-radius: 6px;
+  padding: 0.75rem;
+  text-align: center;
+  color: var(--aries-symbol);
+  overflow: hidden;
+  backdrop-filter: blur(6px);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.zodiac-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 16px var(--aries-lineGlow);
+}
+
+/* CONSISTENT IMAGE SIZE */
+.zodiac-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  flex-shrink: 0;
+}
+
+/* CONSISTENT TITLE HEIGHT */
+.zodiac-card h3 {
+  min-height: 48px;                /* forces same spacing */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* CENTER NAME LOCATION */
+.zodiac-card p {
+  margin-top: auto;
+  margin-bottom: 0.2rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* OVERLAY FOR CARDS */
+.zodiac-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 2, 10, 0.65);
+  backdrop-filter: blur(4px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 18vh;
+  align-items: center;
+  z-index: 20;
+}
+
+/* PREVENT CLICK-THROUGH ON CARDS */
+.zodiac-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* TEXT STATES (LOADING / EMPTY) */
+.zodiac-loading,
+.zodiac-no-data {
+  font-size: 1.4rem;
+  color: var(--aries-symbol);
+}
+
+/* FADE-IN ANIMATION */
+.fade-in {
+  animation: fadeInCards 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInCards {
+  to { opacity: 1; }
+}
