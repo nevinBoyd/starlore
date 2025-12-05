@@ -10,6 +10,15 @@ const theme = {
         cloudWhite: "#EDEDED",
         blueShift: "#5EC8FF",
         cyanFlash: "#AEE7FF",
+
+        // Aries Palette
+        aries: {
+            sparkCore: "#8c00ff",  
+            lineGlow: "#0ea5e9",   
+            starGlow: "#93f1ef",   
+            accent: "#00d3dd",
+            symbol: "#93f1ef"     
+        }
     },
 };
 
@@ -24,6 +33,12 @@ export const ThemeProvider = ({ children }) => {
             --color-cloudWhite: ${theme.colors.cloudWhite};
             --color-blueShift: ${theme.colors.blueShift};
             --color-cyanFlash: ${theme.colors.cyanFlash};
+
+            --aries-sparkCore: ${theme.colors.aries.sparkCore};
+            --aries-lineGlow: ${theme.colors.aries.lineGlow};
+            --aries-starGlow: ${theme.colors.aries.starGlow};
+            --aries-accent: ${theme.colors.aries.accent};
+            --aries-symbol: ${theme.colors.aries.symbol};
           }
         `}
             </style>
