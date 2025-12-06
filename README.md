@@ -92,5 +92,5 @@ Future Enhancements:
 ## Credits
 
 Developed by Nevin Boyd
-Frontend: React + Vite
-Astronomy data source: NASA Image Library
+- Frontend: React + Vite
+- Astronomy data source: NASA Image Library
