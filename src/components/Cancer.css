@@ -1,0 +1,27 @@
+/* Cancer sigil visually mirrors Aries, but on the right side */
+
+.cancer-img {
+  position: absolute;
+  right: 8%;
+  top: 43%;
+  transform: translateY(-50%);
+
+  width: 26vw;
+  max-width: 380px;
+  min-width: 140px;
+  height: auto;
+
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+
+  /* Glow styling */
+  filter: drop-shadow(0 0 16px rgba(120, 200, 255, 0.7));
+  transition: filter 0.3s ease;
+  z-index: 3;
+}
+
+.cancer-img:hover {
+  filter: drop-shadow(0 0 24px rgba(147, 241, 239, 1))
+          drop-shadow(0 0 32px rgba(14, 165, 233, 0.9));
+}

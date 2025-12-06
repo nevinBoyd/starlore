@@ -115,3 +115,21 @@
   line-height: 1.38rem;
   opacity: 0.95;
 }
+
+/* Label above lore box */
+.lore-sign-label {
+  position: relative;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  text-align: center;
+
+  font-family: "Cormorant Infant", serif;
+  font-size: clamp(1.8rem, 2.4vw, 3rem);
+  font-weight: 600;
+
+  color: var(--aries-symbol);
+  text-shadow: 
+      0 0 12px rgba(147, 241, 239, 0.8),
+      0 0 20px rgba(147, 241, 239, 0.6);
+  letter-spacing: 0.15rem;
+}
