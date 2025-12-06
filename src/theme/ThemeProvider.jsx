@@ -17,9 +17,16 @@ const theme = {
             lineGlow: "#0ea5e9",   
             starGlow: "#93f1ef",   
             accent: "#00d3dd",
-            symbol: "#93f1ef"     
+            symbol: "#93f1ef",
+        },
+
+        // Button Palette    
+        pills: {
+            base: "#FFB3FD",
+            shadowBase: "#1A0033",
+            abyssCore: "#100030",
         }
-    },
+    }
 };
 
 export const ThemeProvider = ({ children }) => {
@@ -39,6 +46,12 @@ export const ThemeProvider = ({ children }) => {
             --aries-starGlow: ${theme.colors.aries.starGlow};
             --aries-accent: ${theme.colors.aries.accent};
             --aries-symbol: ${theme.colors.aries.symbol};
+            
+            --pill-base: ${theme.colors.pills.base};
+            --pill-shadow-base: ${theme.colors.pills.shadowBase};
+            --pill-shadow: 0 4px 8px rgba(26, 0, 51, 0.65);
+            --pill-text: ${theme.colors.pills.shadowBase};
+            --pill-abyss: ${theme.colors.pills.abyssCore};
           }
         `}
             </style>
