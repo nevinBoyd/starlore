@@ -78,7 +78,7 @@ export default function ZodiacCards({ sign, onClose }) {
     <div className="zodiac-overlay fade-in" onClick={onClose}>
       <div className="zodiac-card-content" onClick={(e) => e.stopPropagation()}>
 
-        {/* Single Display Card — User clicks to open viewer */}
+        {/* SINGLE DISPLAY CARD — click to view/cycle */}
         <div className="zodiac-card-container">
           {images.slice(0, 1).map((img, i) => (
             <div
@@ -93,19 +93,26 @@ export default function ZodiacCards({ sign, onClose }) {
           ))}
         </div>
 
-        {/* Category Buttons */}
+        {/* CATEGORY BUTTONS */}
         <CategoryButtons
           categories={["Mythology", "Astral Lore", "Esotericism", "Alchemy", "Sacred Rites"]}
           activeCategory={activeCategory}
           onSelect={setActiveCategory}
         />
 
-        {/* Lore Panel */}
+        {/* CONSTELLATION NAME + LORE PANEL */}
         {activeCategory && (
-          <LorePanel signKey={sign.toLowerCase()} categoryLabel={activeCategory} />
+          <>
+            <div className="lore-sign-label">{sign.toUpperCase()}</div>
+
+            <LorePanel
+              signKey={sign.toLowerCase()}
+              categoryLabel={activeCategory}
+            />
+          </>
         )}
 
-        {/* Fullscreen Viewer */}
+        {/* FULLSCREEN IMAGE VIEWER */}
         {viewerIndex !== null && (
           <div className="image-viewer-overlay" onClick={() => setViewerIndex(null)}>
             <img
