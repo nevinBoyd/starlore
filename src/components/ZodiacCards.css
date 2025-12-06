@@ -1,19 +1,17 @@
 /* CARD GRID */
 .zodiac-card-container {
   display: flex;
-  gap: 1.4rem;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
 }
 
-/* INDIVIDUAL CARD */
+/* CARD */
 .zodiac-card {
-  width: 240px;
-  height: 340px;                   /* consistent card height */
+  width: 260px;
+  height: 350px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   background: rgba(0, 10, 20, 0.75);
   border: 1px solid var(--aries-accent);
   box-shadow: 0 0 10px var(--aries-starGlow);
@@ -21,43 +19,36 @@
   padding: 0.75rem;
   text-align: center;
   color: var(--aries-symbol);
-  overflow: hidden;
-  backdrop-filter: blur(6px);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .zodiac-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 16px var(--aries-lineGlow);
+  transform: scale(1.03);
+  box-shadow: 0 0 15px var(--aries-lineGlow);
 }
 
-/* CONSISTENT IMAGE SIZE */
 .zodiac-card img {
   width: 100%;
-  height: 160px;
+  height: 170px;
   object-fit: cover;
   border-radius: 4px;
   margin-bottom: 0.5rem;
-  flex-shrink: 0;
 }
 
-/* CONSISTENT TITLE HEIGHT */
 .zodiac-card h3 {
-  min-height: 48px;                /* forces same spacing */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-top: 0.3rem;
+  font-size: 1rem;
+  min-height: 50px;
 }
 
-/* CENTER NAME LOCATION */
 .zodiac-card p {
   margin-top: auto;
-  margin-bottom: 0.2rem;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   opacity: 0.8;
 }
 
-/* OVERLAY FOR CARDS */
+/* OVERLAY for Cards */
 .zodiac-overlay {
   position: fixed;
   inset: 0;
@@ -71,26 +62,57 @@
   z-index: 20;
 }
 
-/* PREVENT CLICK-THROUGH ON CARDS */
 .zodiac-card-content {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* TEXT STATES (LOADING / EMPTY) */
+/* STATUS TEXT */
 .zodiac-loading,
 .zodiac-no-data {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   color: var(--aries-symbol);
 }
 
-/* FADE-IN ANIMATION */
+/* ANIMATION */
 .fade-in {
   animation: fadeInCards 0.6s ease-out forwards;
   opacity: 0;
 }
-
 @keyframes fadeInCards {
   to { opacity: 1; }
+}
+
+/* FULLSCREEN VIEWER */
+.image-viewer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 5, 0.82);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  cursor: zoom-out;
+  backdrop-filter: blur(3px);
+}
+
+.image-viewer {
+  width: 65vw;
+  height: 65vh;
+  object-fit: contain;
+  background: black;
+  border-radius: 6px;
+  cursor: pointer; /* click to cycle */
+  padding: 0.4rem;
+  border: 1px solid rgba(0, 200, 255, 0.6);
+  box-shadow: 0 0 35px rgba(0, 255, 255, 0.45);
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .image-viewer {
+    width: 90vw;
+    height: 60vh;
+  }
 }

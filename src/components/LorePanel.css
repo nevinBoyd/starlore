@@ -1,0 +1,117 @@
+/* FONT IMPORTS */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=IM+Fell+English&family=Crimson+Text:wght@400;600&display=swap');
+
+/* FONT STACK */
+.lore-panel,
+.lore-title,
+.lore-text,
+.lore-pill {
+  font-family:
+    "Cinzel Decorative",
+    "IM+Fell English",
+    "Crimson Text",
+    "Times New Roman",
+    serif;
+  color: var(--color-cloudWhite);
+}
+
+/* PILL BUTTON ROW */
+.lore-pill-row {
+  margin-top: 2.5rem;
+  margin-bottom: 2.2rem;
+  display: flex;
+  gap: 1.4rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* CATEGORY PILLS — FINAL */
+.lore-pill {
+  background: linear-gradient(
+    to bottom,
+    var(--pill-base) 0%,
+    var(--pill-base) 45%,
+    var(--pill-shadow-base) 100%
+  );
+  color: var(--color-cloudWhite);
+  border: 1px solid var(--aries-accent);
+  padding: 8px 16px;
+  min-width: 128px;
+  border-radius: 22px;
+  cursor: pointer;
+  font-weight: 600;
+  user-select: none;
+  text-align: center;
+  letter-spacing: 0.7px;
+
+  /* Glow style to match card borders */
+  box-shadow:
+    0 0 6px var(--aries-starGlow),
+    0 0 10px var(--aries-lineGlow);
+
+  transition: box-shadow 0.25s ease, border-color 0.25s ease, filter 0.25s ease;
+}
+
+.lore-pill:hover {
+  box-shadow:
+    0 0 12px var(--aries-lineGlow),
+    0 0 22px var(--aries-lineGlow);
+  border-color: var(--aries-lineGlow);
+  filter: brightness(1.09);
+}
+
+.lore-pill.active {
+  box-shadow:
+    0 0 14px var(--aries-lineGlow),
+    0 0 28px var(--aries-lineGlow);
+  border-color: var(--aries-lineGlow);
+  filter: brightness(1.14);
+}
+
+/* LORE PANEL */
+.lore-panel {
+  margin-top: 3.5rem;
+  width: 760px;
+  height: 240px;
+  overflow-y: auto;
+  padding: 1.2rem 1.4rem;
+  border-radius: 6px;
+
+  /* Same glow style as cards */
+  border: 1px solid var(--aries-lineGlow);
+  backdrop-filter: blur(4px);
+  box-shadow:
+    0 0 12px var(--aries-starGlow),
+    0 0 20px var(--aries-lineGlow);
+
+  background: rgba(0, 10, 20, 0.82);
+}
+
+.lore-panel:hover {
+  box-shadow:
+    0 0 20px var(--aries-lineGlow),
+    0 0 38px var(--aries-lineGlow);
+}
+
+/* TEXT */
+.lore-entry + .lore-entry {
+  margin-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  padding-top: 0.75rem;
+}
+
+.lore-title {
+  font-size: 0.98rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+  color: var(--color-cloudWhite);
+  text-shadow: 0 0 6px rgba(255,255,255,0.35);
+  letter-spacing: 0.8px;
+}
+
+.lore-text {
+  font-size: 0.95rem;
+  line-height: 1.38rem;
+  opacity: 0.95;
+}
