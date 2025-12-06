@@ -3,6 +3,7 @@ import StarFieldCanvas from "../components/StarFieldCanvas";
 import AriesHead from "../components/AriesHead";
 import Cancer from "../components/Cancer";
 import Libra from "../components/Libra";
+import Capricorn from "../components/Capricorn";
 import ZodiacCards from "../components/ZodiacCards";
 import "./StarMap.css";
 
@@ -18,7 +19,11 @@ export default function StarMap() {
   }
 
   function handleLibraClick() {
-    setActiveSign("Libra")
+    setActiveSign("Libra");
+  }
+
+  function handleCapricornClick() {
+    setActiveSign("Capricorn");
   }
 
   return (
@@ -33,6 +38,9 @@ export default function StarMap() {
 
       {/* Libra Sigil */}
       <Libra onClick={handleLibraClick} />
+
+      {/* Capricorn Sigil */}
+      <Capricorn onClick={handleCapricornClick} />
 
       {/* Cards appear after selecting a sign */}
       {activeSign && (
